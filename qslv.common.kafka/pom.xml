@@ -3,11 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.schneezey</groupId>
-	<artifactId>qslv.common.kafka</artifactId>
+	<artifactId>qslv-common-kafka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Common Kafka Library</name>
 	<description>Avro serialization helper classes</description>
 	<properties>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
+		<spring-reactor.version>1.0.1.RELEASE</spring-reactor.version>
 		<spring.core.version>5.2.7.RELEASE</spring.core.version>
 		<confluent.version>5.3.0</confluent.version>
 		<confluent.schema.registry.version>5.2.1</confluent.schema.registry.version>
@@ -52,7 +57,7 @@
 			<groupId>io.confluent</groupId>
 			<artifactId>kafka-schema-registry</artifactId>
 			<version>${confluent.schema.registry.version}</version>
-						<exclusions>
+			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-log4j12</artifactId>
@@ -156,8 +161,22 @@
 		</dependency>
 		<dependency>
 			<groupId>io.schneezey</groupId>
-			<artifactId>qslv.common</artifactId>
+			<artifactId>qslv-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin-version}</version> <!-- or whatever current version -->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
