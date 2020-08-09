@@ -43,9 +43,11 @@ import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
  */
 public class JacksonAvroDeserializer<T> extends AbstractKafkaAvroDeserializer implements Deserializer<T> {
 	private static final Logger log = LoggerFactory.getLogger(JacksonAvroDeserializer.class);
+
 	
 	private final AvroFactory factory = new AvroFactory();
 	private AvroMapper mapper = new AvroMapper(new AvroFactory());
+	
 	{
 		mapper.registerModule(new JavaTimeModule());
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -66,6 +68,7 @@ public class JacksonAvroDeserializer<T> extends AbstractKafkaAvroDeserializer im
 	public void configure(Map<String, ?> config, boolean isKey) {
 		configure(config);
 	}
+
 	
 	/**
 	 * The superclass AbstractKafkaAvroDeserializer maintains a cache of the schemas, 
