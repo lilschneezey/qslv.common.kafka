@@ -18,6 +18,7 @@ public class TraceableMessage<T> {
 		this.businessTaxonomyId = clone.businessTaxonomyId;
 		this.correlationId = clone.correlationId;
 		this.messageCreationTime = clone.messageCreationTime;
+		this.messageCompletionTime = clone.messageCompletionTime;
 		this.payload = payload;
 	}
 	public String getProducerAit() {
